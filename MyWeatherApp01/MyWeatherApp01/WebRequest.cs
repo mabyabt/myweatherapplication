@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Text;
 using System.Xml;
@@ -22,24 +23,28 @@ namespace MyWeatherApp01
 
 
         public static void getXml(string url) {
-
-
-          
-            
+ 
             string xmlStr;
+
             using (var wc = new WebClient())
             {
                 xmlStr = wc.DownloadString(url);
             }
-            var xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(xmlStr);
+            Debug.WriteLine("xmlStr:::::::::::::::"+xmlStr);
 
 
-            string datastorage = GetXMLAsString(xmlDoc);
-            data.setData(datastorage);
+            
+
+
+
+         //   string datastorage = GetXMLAsString(xmlDoc);
+            data.setData(xmlStr);
 
 
         }
+
+
+
         private static string GetXMLAsString(XmlDocument myxml)
         {
             return myxml.OuterXml;

@@ -19,8 +19,10 @@ namespace MyWeatherApp01
 
 
             requestUrl = WebRequest.getUrl(cityName.Text);
+
             WebRequest.getXml(requestUrl);
-            string outText = data.getData();
+
+            string outText = data.getWeatherInfo();
             output.Text = outText;
             output.IsVisible = true;
             Console.WriteLine("Url link ::::::::"+ requestUrl);
