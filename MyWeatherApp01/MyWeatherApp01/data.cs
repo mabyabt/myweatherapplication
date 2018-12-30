@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Xml;
 
@@ -31,23 +32,35 @@ namespace MyWeatherApp01
         private static string wind;
         private static string cloud;
 
+        private static float kelvinToCelsiu(string kelvin) {
 
+
+            float cfok;
+
+            double k = Convert.ToDouble(kelvin);
+
+            cfok = (float)k - (float)273.15;
+
+            return cfok;
+
+
+        }
 
         public static string getWeatherInfo() {
-            XmlNodeList xnList = xmldata.SelectNodes("/current");
+
+            XmlNodeList temp0 = xmldata.GetElementsByTagName("temperature");
+            XmlNodeList cloud0 = xmldata.GetElementsByTagName("clouds");
+
+            temp = temp0[0].Attributes["value"].Value;
+
+            cloud = cloud0[0].Attributes["name"].Value;
 
 
-            foreach (XmlNode xn in xnList)
-            {
-              temp = xn["temperature"].Value;
-                cloud = xn["weather"].Value;
-               
-            }
 
-
+           // Debug.WriteLine("temp::::::_____:::::"+temp);
 
             string outWeather;
-            outWeather = $"weather: {temp} {cloud}";
+            outWeather = "weather: "+temp+" kelvin   \n in celsius: "+kelvinToCelsiu(temp)+ " \n" +cloud ;
             
 
 
