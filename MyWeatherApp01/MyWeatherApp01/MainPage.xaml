@@ -17,6 +17,13 @@
                 Clicked="SubmitBtn_Clicked"
                 />
 
+        <Label
+            IsVisible="False"
+            x:Name="output"
+            
+            />
+
+
 
     </StackLayout>
 

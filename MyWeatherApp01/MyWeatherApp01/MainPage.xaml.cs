@@ -13,10 +13,17 @@ namespace MyWeatherApp01
         {
             InitializeComponent();
         }
-
+        private static string requestUrl;
         private void SubmitBtn_Clicked(object sender, EventArgs e)
         {
 
+
+            requestUrl = WebRequest.getUrl(cityName.Text);
+            WebRequest.getXml(requestUrl);
+            string outText = data.getData();
+            output.Text = outText;
+            output.IsVisible = true;
+            Console.WriteLine("Url link ::::::::"+ requestUrl);
         }
     }
 }
