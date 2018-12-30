@@ -6,9 +6,18 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+        <Label Text="Enter your location" 
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+           VerticalOptions="Center" />
+        <Entry x:Name="cityName" 
+               Placeholder="city"
+               VerticalOptions="Center"/>
+        <Button x:Name="submitBtn" 
+                Text="give me the weather "
+                Clicked="SubmitBtn_Clicked"
+                />
+
+
     </StackLayout>
 
 </ContentPage>

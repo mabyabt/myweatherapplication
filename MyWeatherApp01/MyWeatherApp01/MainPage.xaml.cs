@@ -13,5 +13,10 @@ namespace MyWeatherApp01
         {
             InitializeComponent();
         }
+
+        private void SubmitBtn_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
