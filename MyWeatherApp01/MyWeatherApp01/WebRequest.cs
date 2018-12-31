@@ -25,16 +25,16 @@ namespace MyWeatherApp01
         public static void getXml(string url) {
  
             string xmlStr;
+           
 
-            using (var wc = new WebClient())
-            {
-                xmlStr = wc.DownloadString(url);
-            }
-            Debug.WriteLine("xmlStr:::::::::::::::"+xmlStr);
+                using (var wc = new WebClient())
+                {
+                    xmlStr = wc.DownloadString(url);
+                }
+                Debug.WriteLine("xmlStr:::::::::::::::" + xmlStr);
 
 
-            
-
+          
 
 
          //   string datastorage = GetXMLAsString(xmlDoc);

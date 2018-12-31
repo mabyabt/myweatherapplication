@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Diagnostics;
+
 
 namespace MyWeatherApp01
 {
@@ -19,13 +21,22 @@ namespace MyWeatherApp01
 
 
             requestUrl = WebRequest.getUrl(cityName.Text);
+            try
+            {
+                WebRequest.getXml(requestUrl);
+                string outText = data.getWeatherInfo();
+                output.Text = outText;
+                output.IsVisible = true;
+                Console.WriteLine("Url link ::::::::" + requestUrl);
+            }
+            catch (Exception ex) {
 
-            WebRequest.getXml(requestUrl);
-
-            string outText = data.getWeatherInfo();
-            output.Text = outText;
-            output.IsVisible = true;
-            Console.WriteLine("Url link ::::::::"+ requestUrl);
+                Debug.WriteLine("error::::" + ex);
+                output.Text = "something went wrong ";
+                output.IsVisible = true;
+                output.TextColor = Color.Red;
+            }
+            
         }
     }
 }
