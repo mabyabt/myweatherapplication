@@ -10,7 +10,7 @@ namespace MyWeatherApp01
     class WebRequest
     {
         private static string urlFirst = "https://api.openweathermap.org/data/2.5/weather?q=";
-        private static string apiKey = "2b8c4f840e3bb8352ca8c2d767e82d17";
+        private static string apiKey = "___openweatherapi_key___";
         private static string urlCenter = "&appid=";
         private static string urlEnd = "&mode=xml";
 
